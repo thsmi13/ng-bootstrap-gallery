@@ -1,0 +1,38 @@
+<div *ngIf="image" class="row">
+<div *ngFor="let dog of returnedArray" class="col-md-4" >
+
+<div class="card mb-4 shadow-sm">
+  <img src="{{dog}}" (click)="openModal(template)">
+  <div class="card-body">
+    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="btn-group">
+        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+      </div>
+      <small class="text-muted">9 mins</small>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<button type="button" class="btn btn-primary" >Create template modal</button>
+
+<ng-template #template>
+  <div class="modal-body">
+    <carousel>
+      <slide *ngFor="let dog of returnedArray">
+        <img src="{{dog}}" alt="first slide" style="display: block; width: 100%;">
+      </slide>
+
+    </carousel>
+  </div>
+</ng-template>
+
+<div class="row">
+  <div class="col-md-12">
+    <pagination [totalItems]="100" (pageChanged)="pageChanged($event)"></pagination>
+  </div>
+
+</div>
